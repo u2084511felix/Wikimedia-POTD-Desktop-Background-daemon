@@ -1,0 +1,434 @@
+{
+  "schema_version": 2,                                                           "updated_at": "2026-05-21T14:53:39Z",
+  "applied_as_wallpaper": true,                                                  "mode": "random",
+  "potd_date": "2018-03-11",                                                     "entry_id": "random:2018-03-11:1779375218",
+  "file_title": "File:Lori_Berd,_Armenia,_2016-09-30,_DD_63-65_HDR.jpg",         "page_id": 52438563,
+  "mediainfo_id": null,                                                          "commons_page_url": "https://commons.wikimedia.org/wiki/File:Lori_Berd,_Armenia,_2016-09-30,_DD_63-65_HDR.jpg",                                               "display_path": "/home/felix/.local/share/commons-potd-wallpaper/images/potd_2018-03-11_Lori_Berd,_Armenia,_2016-09-30,_DD_63-65_HDR.jpg",                    "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Lori_Berd%2C_Armenia%2C_2016-09-30%2C_DD_63-65_HDR.jpg/3840px-Lori_Berd%2C_Armenia%2C_2016-09-30%2C_DD_63-65_HDR.jpg",
+  "imageinfo": {                                                                   "timestamp": "2017-03-19T13:44:45Z",
+    "user": "Poco a poco",                                                         "userid": 286597,
+    "size": 9309762,                                                               "width": 8011,
+    "height": 4896,                                                                "comment": "Crop, perspective",
+    "canonicaltitle": "File:Lori Berd, Armenia, 2016-09-30, DD 63-65 HDR.jpg",     "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Lori_Berd%2C_Armenia%2C_2016-09-30%2C_DD_63-65_HDR.jpg/3840px-Lori_Berd%2C_Armenia%2C_2016-09-30%2C_DD_63-65_HDR.jpg",
+    "thumbwidth": 3840,                                                            "thumbheight": 2347,
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/77/Lori_Berd%2C_Armenia%2C_2016-09-30%2C_DD_63-65_HDR.jpg",
+    "descriptionurl": "https://commons.wikimedia.org/wiki/File:Lori_Berd,_Armenia,_2016-09-30,_DD_63-65_HDR.jpg",
+    "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=52438563",
+    "sha1": "e01a1232e2d959ee5f5b56b8a90ca39e65c84517",                            "metadata": [
+      {                                                                                "name": "Make",
+        "value": "Canon"                                                             },
+      {                                                                                "name": "Model",
+        "value": "Canon EOS 5DS R"                                                   },
+      {                                                                                "name": "XResolution",
+        "value": "300/1"                                                             },
+      {                                                                                "name": "YResolution",
+        "value": "300/1"                                                             },
+      {                                                                                "name": "ResolutionUnit",
+        "value": 2                                                                   },
+      {                                                                                "name": "Software",
+        "value": "Adobe Photoshop Lightroom 6.9 (Windows)"                           },
+      {                                                                                "name": "DateTime",
+        "value": "2017:03:19 14:36:22"                                               },
+      {                                                                                "name": "Artist",
+        "value": "Diego Delso"                                                       },
+      {                                                                                "name": "Copyright",
+        "value": "CC-BY-SA 4.0\n\n"                                                  },
+      {                                                                                "name": "ExposureTime",
+        "value": "1/640"                                                             },
+      {                                                                                "name": "FNumber",
+        "value": "11/1"                                                              },
+      {                                                                                "name": "ExposureProgram",
+        "value": 1                                                                   },
+      {                                                                                "name": "ISOSpeedRatings",
+        "value": 100                                                                 },
+      {                                                                                "name": "ExifVersion",
+        "value": "0230"                                                              },
+      {                                                                                "name": "DateTimeOriginal",
+        "value": "2016:09:30 15:00:46"                                               },
+      {                                                                                "name": "DateTimeDigitized",
+        "value": "2016:09:30 15:00:46"                                               },
+      {                                                                                "name": "ShutterSpeedValue",
+        "value": "9321928/1000000"                                                   },
+      {
+        "name": "ApertureValue",
+        "value": "6918863/1000000"                                                   },                                                                             {
+        "name": "ExposureBiasValue",                                                   "value": "0/1"                                                               },
+      {                                                                                "name": "MaxApertureValue",                                                    "value": "4/1"
+      },                                                                             {                                                                                "name": "MeteringMode",
+        "value": 5                                                                   },                                                                             {
+        "name": "Flash",                                                               "value": 16                                                                  },
+      {                                                                                "name": "FocalLength",                                                         "value": "16/1"
+      },                                                                             {                                                                                "name": "SubSecTimeOriginal",
+        "value": "00"                                                                },                                                                             {
+        "name": "ColorSpace",                                                          "value": 1                                                                   },
+      {                                                                                "name": "FocalPlaneXResolution",                                               "value": "79080107/32768"
+      },                                                                             {                                                                                "name": "FocalPlaneYResolution",
+        "value": "79080107/32768"                                                    },                                                                             {
+        "name": "FocalPlaneResolutionUnit",                                            "value": 3                                                                   },
+      {                                                                                "name": "CustomRendered",                                                      "value": 0
+      },                                                                             {                                                                                "name": "ExposureMode",
+        "value": 1                                                                   },                                                                             {
+        "name": "WhiteBalance",                                                        "value": 0                                                                   },
+      {                                                                                "name": "SceneCaptureType",                                                    "value": 0
+      },                                                                             {                                                                                "name": "SerialNumber",
+        "value": "028021000269"                                                      },                                                                             {
+        "name": "Lens",                                                                "value": "EF16-35mm f/4L IS USM"                                             },
+      {                                                                                "name": "DateTimeMetadata",                                                    "value": "2017:03:19 15:36:22"
+      },                                                                             {                                                                                "name": "OriginalDocumentID",                                                  "value": "C58921E2522E0C3570BCE5A607F00144"
+      },                                                                             {                                                                                "name": "WebStatement",
+        "value": "http://creativecommons.org/licenses/by-sa/4.0/"                    },                                                                             {
+        "name": "Copyrighted",                                                         "value": "True"                                                              },
+      {                                                                                "name": "Contact",                                                             "value": "[mailto:diegodelso@gmx.net <span class=\"email\">diegodelso@gmx.net</span>]\n\n\n<div class=\"adr\">\n\n\n, ,  \n</div>\n"                        },                                                                             {
+        "name": "iimVersion",                                                          "value": 4                                                                   },
+      {                                                                                "name": "MEDIAWIKI_EXIF_VERSION",                                              "value": 1
+      }                                                                            ],                                                                             "commonmetadata": [
+      {                                                                                "name": "Make",                                                                "value": "Canon"
+      },                                                                             {                                                                                "name": "Model",
+        "value": "Canon EOS 5DS R"                                                   },                                                                             {
+        "name": "XResolution",                                                         "value": "300/1"
+      },                                                                             {
+        "name": "YResolution",                                                         "value": "300/1"
+      },                                                                             {
+        "name": "ResolutionUnit",                                                      "value": 2
+      },                                                                             {
+        "name": "Software",                                                            "value": "Adobe Photoshop Lightroom 6.9 (Windows)"
+      },                                                                             {
+        "name": "DateTime",                                                            "value": "2017:03:19 14:36:22"
+      },                                                                             {
+        "name": "Artist",                                                              "value": "Diego Delso"
+      },                                                                             {
+        "name": "Copyright",                                                           "value": [
+          {
+            "name": "x-default",
+            "value": "CC-BY-SA 4.0"
+          },
+          {
+            "name": "_type",
+            "value": "lang"
+          }
+        ]
+      },
+      {
+        "name": "ExposureTime",
+        "value": "1/640"
+      },
+      {
+        "name": "FNumber",
+        "value": "11/1"
+      },
+      {
+        "name": "ExposureProgram",
+        "value": 1
+      },
+      {
+        "name": "ISOSpeedRatings",
+        "value": 100
+      },
+      {
+        "name": "ExifVersion",
+        "value": "0230"
+      },
+      {
+        "name": "DateTimeOriginal",
+        "value": "2016:09:30 15:00:46"
+      },
+      {
+        "name": "DateTimeDigitized",
+        "value": "2016:09:30 15:00:46"
+      },
+      {
+        "name": "ShutterSpeedValue",
+        "value": "9321928/1000000"
+      },
+      {
+        "name": "ApertureValue",
+        "value": "6918863/1000000"
+      },
+      {
+        "name": "ExposureBiasValue",
+        "value": "0/1"
+      },
+      {
+        "name": "MaxApertureValue",
+        "value": "4/1"
+      },
+      {
+        "name": "MeteringMode",
+        "value": 5
+      },
+      {
+        "name": "Flash",
+        "value": 16
+      },
+      {
+        "name": "FocalLength",
+        "value": "16/1"
+      },
+      {
+        "name": "SubSecTimeOriginal",
+        "value": "00"
+      },
+      {
+        "name": "ColorSpace",
+        "value": 1
+      },
+      {
+        "name": "FocalPlaneXResolution",
+        "value": "79080107/32768"
+      },
+      {
+        "name": "FocalPlaneYResolution",
+        "value": "79080107/32768"
+      },
+      {
+        "name": "FocalPlaneResolutionUnit",
+        "value": 3
+      },
+      {
+        "name": "CustomRendered",
+        "value": 0
+      },
+      {
+        "name": "ExposureMode",
+        "value": 1
+      },
+      {
+        "name": "WhiteBalance",
+        "value": 0
+      },
+      {
+        "name": "SceneCaptureType",
+        "value": 0
+      },
+      {
+        "name": "SerialNumber",
+        "value": "028021000269"
+      },
+      {
+        "name": "Lens",
+        "value": "EF16-35mm f/4L IS USM"
+      },
+      {
+        "name": "DateTimeMetadata",
+        "value": "2017:03:19 15:36:22"
+      },
+      {
+        "name": "OriginalDocumentID",
+        "value": "C58921E2522E0C3570BCE5A607F00144"
+      },
+      {
+        "name": "WebStatement",
+        "value": "http://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      {
+        "name": "Copyrighted",
+        "value": "True"
+      },
+      {
+        "name": "Contact",
+        "value": [
+          {
+            "name": "CiEmailWork",
+            "value": "diegodelso@gmx.net"
+          }
+        ]
+      },
+      {
+        "name": "iimVersion",
+        "value": 4
+      }
+    ],
+    "extmetadata": {
+      "DateTime": {
+        "value": "2017-03-19 13:44:45",
+        "source": "mediawiki-metadata",
+        "hidden": ""
+      },
+      "ObjectName": {
+        "value": "Lori Berd, Armenia, 2016-09-30, DD 63-65 HDR",
+        "source": "mediawiki-metadata"
+      },
+      "CommonsMetadataExtension": {
+        "value": 1.2,
+        "source": "extension",
+        "hidden": ""
+      },
+      "Categories": {
+        "value": "Lori Berd|Tone-mapped HDR images of churches|Images of Armenia by User:Poco a poco|Featured pictures by User:Poco a poco|Images by User:Poco a poco|Featured pictures of Armenia by User:Poco a poco|Featured pictures on Commons by User:Poco a poco|Featured pictures of buildings by User:Poco a poco|Featured pictures of churches in Armenia|Files with coordinates missing SDC location of creation|Clouds and blue sky in Armenia|Armenia photographs taken on 2016-09-30|Images by User:Poco a poco taken in 2016|Taken with Canon EOS 5DS R and Canon EF 16-35mm F4L IS USM",
+        "source": "commons-categories",
+        "hidden": ""
+      },
+      "Assessments": {
+        "value": "quality|featured|potd",
+        "source": "commons-categories",
+        "hidden": ""
+      },
+      "GPSLatitude": {
+        "value": "41.002648",
+        "source": "commons-desc-page"
+      },
+      "GPSLongitude": {
+        "value": "44.429299",
+        "source": "commons-desc-page"
+      },
+      "GPSMapDatum": {
+        "value": "WGS-84",
+        "source": "commons-desc-page",
+        "hidden": ""
+      },
+      "ImageDescription": {
+        "value": "Ruined Armenian church inside <a href=\"https://en.wikipedia.org/wiki/Lori_Fortress\" class=\"extiw\" title=\"en:Lori Fortress\">Lori Berd</a> (Lori Fortress), an 11th-century fortress located in the <a href=\"https://en.wikipedia.org/wiki/Lori_Province\" class=\"extiw\" title=\"en:Lori Province\">Lori Province</a>, <a href=\"https://en.wikipedia.org/wiki/Armenia\" class=\"extiw\" title=\"en:Armenia\">Armenia</a>. The fortress was built by <a href=\"https://en.wikipedia.org/wiki/David_I_Anhoghin\" class=\"extiw\" title=\"en:David I Anhoghin\">David Anhoghin</a> to become the capital of <a href=\"https://en.wikipedia.org/wiki/Kingdom_of_Tashir-Dzoraget\" class=\"extiw\" title=\"en:Kingdom of Tashir-Dzoraget\">Kingdom of Tashir-Dzoraget</a> in 1065.",
+        "source": "commons-desc-page"
+      },
+      "DateTimeOriginal": {
+        "value": "2016-09-30 15:00:46",
+        "source": "commons-desc-page"
+      },
+      "Credit": {
+        "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+        "source": "commons-desc-page"
+      },
+      "Artist": {
+        "value": "<bdi><a href=\"https://www.wikidata.org/wiki/Q28147777\" class=\"extiw\" title=\"d:Q28147777\"><span title=\"Spanish photographer\">Diego Delso</span></a></bdi>",
+        "source": "commons-desc-page"
+      },
+      "LicenseShortName": {
+        "value": "CC BY-SA 4.0",
+        "source": "commons-desc-page",
+        "hidden": ""
+      },
+      "UsageTerms": {
+        "value": "Creative Commons Attribution-Share Alike 4.0",
+        "source": "commons-desc-page"
+      },
+      "AttributionRequired": {
+        "value": "true",
+        "source": "commons-desc-page",
+        "hidden": ""
+      },
+      "Attribution": {
+        "value": "Diego Delso",
+        "source": "commons-desc-page",
+        "hidden": ""
+      },
+      "LicenseUrl": {
+        "value": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "commons-desc-page"
+      },
+      "Copyrighted": {
+        "value": "True",
+        "source": "commons-desc-page",
+        "hidden": ""
+      },
+      "Restrictions": {
+        "value": "",
+        "source": "commons-desc-page",
+        "hidden": ""
+      },
+      "License": {
+        "value": "cc-by-sa-4.0",
+        "source": "commons-templates",
+        "hidden": ""
+      }
+    },
+    "mime": "image/jpeg",
+    "mediatype": "BITMAP"
+  },
+  "extmetadata": {
+    "DateTime": {
+      "value": "2017-03-19 13:44:45",
+      "source": "mediawiki-metadata",
+      "hidden": ""
+    },
+    "ObjectName": {
+      "value": "Lori Berd, Armenia, 2016-09-30, DD 63-65 HDR",
+      "source": "mediawiki-metadata"
+    },
+    "CommonsMetadataExtension": {
+      "value": 1.2,
+      "source": "extension",
+      "hidden": ""
+    },
+    "Categories": {
+      "value": "Lori Berd|Tone-mapped HDR images of churches|Images of Armenia by User:Poco a poco|Featured pictures by User:Poco a poco|Images by User:Poco a poco|Featured pictures of Armenia by User:Poco a poco|Featured pictures on Commons by User:Poco a poco|Featured pictures of buildings by User:Poco a poco|Featured pictures of churches in Armenia|Files with coordinates missing SDC location of creation|Clouds and blue sky in Armenia|Armenia photographs taken on 2016-09-30|Images by User:Poco a poco taken in 2016|Taken with Canon EOS 5DS R and Canon EF 16-35mm F4L IS USM",
+      "source": "commons-categories",
+      "hidden": ""
+    },
+    "Assessments": {
+      "value": "quality|featured|potd",
+      "source": "commons-categories",
+      "hidden": ""
+    },
+    "GPSLatitude": {
+      "value": "41.002648",
+      "source": "commons-desc-page"
+    },
+    "GPSLongitude": {
+      "value": "44.429299",
+      "source": "commons-desc-page"
+    },
+    "GPSMapDatum": {
+      "value": "WGS-84",
+      "source": "commons-desc-page",
+      "hidden": ""
+    },
+    "ImageDescription": {
+      "value": "Ruined Armenian church inside <a href=\"https://en.wikipedia.org/wiki/Lori_Fortress\" class=\"extiw\" title=\"en:Lori Fortress\">Lori Berd</a> (Lori Fortress), an 11th-century fortress located in the <a href=\"https://en.wikipedia.org/wiki/Lori_Province\" class=\"extiw\" title=\"en:Lori Province\">Lori Province</a>, <a href=\"https://en.wikipedia.org/wiki/Armenia\" class=\"extiw\" title=\"en:Armenia\">Armenia</a>. The fortress was built by <a href=\"https://en.wikipedia.org/wiki/David_I_Anhoghin\" class=\"extiw\" title=\"en:David I Anhoghin\">David Anhoghin</a> to become the capital of <a href=\"https://en.wikipedia.org/wiki/Kingdom_of_Tashir-Dzoraget\" class=\"extiw\" title=\"en:Kingdom of Tashir-Dzoraget\">Kingdom of Tashir-Dzoraget</a> in 1065.",
+      "source": "commons-desc-page"
+    },
+    "DateTimeOriginal": {
+      "value": "2016-09-30 15:00:46",
+      "source": "commons-desc-page"
+    },
+    "Credit": {
+      "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "source": "commons-desc-page"
+    },
+    "Artist": {
+      "value": "<bdi><a href=\"https://www.wikidata.org/wiki/Q28147777\" class=\"extiw\" title=\"d:Q28147777\"><span title=\"Spanish photographer\">Diego Delso</span></a></bdi>",
+      "source": "commons-desc-page"
+    },
+    "LicenseShortName": {
+      "value": "CC BY-SA 4.0",
+      "source": "commons-desc-page",
+      "hidden": ""
+    },
+    "UsageTerms": {
+      "value": "Creative Commons Attribution-Share Alike 4.0",
+      "source": "commons-desc-page"
+    },
+    "AttributionRequired": {
+      "value": "true",
+      "source": "commons-desc-page",
+      "hidden": ""
+    },
+    "Attribution": {
+      "value": "Diego Delso",
+      "source": "commons-desc-page",
+      "hidden": ""
+    },
+    "LicenseUrl": {
+      "value": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "commons-desc-page"
+    },
+    "Copyrighted": {
+      "value": "True",
+      "source": "commons-desc-page",
+      "hidden": ""
+    },
+    "Restrictions": {
+      "value": "",
+      "source": "commons-desc-page",
+      "hidden": ""
+    },
+    "License": {
+      "value": "cc-by-sa-4.0",
+      "source": "commons-templates",
+      "hidden": ""
+    }
+  },
+  "wikibase": {
+    "source": "Wikimedia Commons Structured Data / Wikibase MediaInfo",
+    "labels": {},
+    "entity": {}
+  }
+}
