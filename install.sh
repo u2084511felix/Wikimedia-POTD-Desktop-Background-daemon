@@ -2,6 +2,7 @@
 set -euo pipefail
 
 SCRIPT_NAME="commons-potd-wallpaper.sh"
+PYTHON_NAME="commons-potd-wallpaper.py"
 RANDOM_WRAPPER_NAME="random-potd"
 INFO_WRAPPER_NAME="potd-info"
 SAVE_WRAPPER_NAME="potd-save"
@@ -19,7 +20,7 @@ usage() {
 Usage: $(basename "$0") [options]
 
 Options:
-  --no-apt             Don't install deps via apt
+  --no-apt             Don't install Python via apt if missing
   --enable-linger      Enable lingering for this user
   --max-width N        Set MAX_WIDTH for downloads
   --keep N             Number of cached images to keep
@@ -31,7 +32,6 @@ EOF_USAGE
 
 normalise_timer_time() {
   local t="$1"
-
   if [[ "$t" =~ ^([01][0-9]|2[0-3]):[0-5][0-9]$ ]]; then
     printf '%s:00' "$t"
   elif [[ "$t" =~ ^([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$ ]]; then
@@ -42,27 +42,46 @@ normalise_timer_time() {
   fi
 }
 
+positive_integer() {
+  local option="$1" value="$2"
+  if [[ ! "$value" =~ ^[0-9]+$ ]] || (( 10#$value == 0 )); then
+    echo "Invalid $option '$value': expected a positive integer." >&2
+    exit 2
+  fi
+}
+
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --no-apt) NO_APT=1; shift ;;
     --enable-linger) ENABLE_LINGER=1; shift ;;
     --run-now) RUN_NOW=1; shift ;;
-    --max-width) MAX_WIDTH="${2:?Missing value for --max-width}"; shift 2 ;;
-    --keep) KEEP="${2:?Missing value for --keep}"; shift 2 ;;
-    --timer-time) TIMER_TIME="$(normalise_timer_time "${2:?Missing value for --timer-time}")"; shift 2 ;;
+    --max-width)
+      MAX_WIDTH="${2:?Missing value for --max-width}"
+      positive_integer --max-width "$MAX_WIDTH"
+      shift 2 ;;
+    --keep)
+      KEEP="${2:?Missing value for --keep}"
+      positive_integer --keep "$KEEP"
+      shift 2 ;;
+    --timer-time)
+      TIMER_TIME="$(normalise_timer_time "${2:?Missing value for --timer-time}")"
+      shift 2 ;;
     -h|--help) usage; exit 0 ;;
-    *) echo "Unknown arg: $1" >&2; usage; exit 2 ;;
+    *) echo "Unknown arg: $1" >&2; usage >&2; exit 2 ;;
   esac
 done
 
 repo_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 src_script="$repo_dir/$SCRIPT_NAME"
+src_python="$repo_dir/$PYTHON_NAME"
 
-if [[ ! -f "$src_script" ]]; then
-  echo "Error: expected $src_script to exist." >&2
-  echo "Put $SCRIPT_NAME in the same directory as install.sh." >&2
-  exit 1
-fi
+for source_file in "$src_script" "$src_python"; do
+  if [[ ! -f "$source_file" ]]; then
+    echo "Error: expected $source_file to exist." >&2
+    echo "Put $SCRIPT_NAME and $PYTHON_NAME alongside install.sh." >&2
+    exit 1
+  fi
+done
 
 if ! command -v systemctl >/dev/null 2>&1; then
   echo "Error: systemctl not found. This installer needs systemd." >&2
@@ -70,20 +89,19 @@ if ! command -v systemctl >/dev/null 2>&1; then
 fi
 
 install_deps() {
-  local pkgs=(curl jq libxml2-utils)
-
+  if command -v python3 >/dev/null 2>&1; then
+    echo "Python 3 found: $(command -v python3)"
+    return 0
+  fi
   if [[ $NO_APT -eq 1 ]]; then
-    echo "Skipping apt dependency install. Ensure these are installed: ${pkgs[*]}"
-    return 0
+    echo "Error: python3 is required but not found (--no-apt specified)." >&2
+    exit 1
   fi
-
   if ! command -v apt-get >/dev/null 2>&1; then
-    echo "apt-get not found. Install dependencies manually: ${pkgs[*]}" >&2
-    return 0
+    echo "Error: python3 is required; apt-get is unavailable. Install Python 3 manually." >&2
+    exit 1
   fi
-
-  echo "Installing dependencies: ${pkgs[*]}"
-
+  echo "Installing Python 3 (only required runtime dependency)"
   if ! sudo apt-get update; then
     echo "apt-get update failed. Retrying with post-invoke hooks disabled..."
     sudo apt-get \
@@ -91,18 +109,22 @@ install_deps() {
       -o APT::Update::Post-Invoke::= \
       update
   fi
-
-  sudo apt-get install -y "${pkgs[@]}"
+  sudo apt-get install -y python3
+  command -v python3 >/dev/null 2>&1 || {
+    echo "Error: python3 still unavailable after installation." >&2
+    exit 1
+  }
 }
 
-install_script() {
-  echo "Installing main script to ~/.local/bin/$SCRIPT_NAME"
+install_scripts() {
+  echo "Installing Python implementation and compatibility wrapper to ~/.local/bin"
   mkdir -p "$HOME/.local/bin"
+  install -m 0755 "$src_python" "$HOME/.local/bin/$PYTHON_NAME"
   install -m 0755 "$src_script" "$HOME/.local/bin/$SCRIPT_NAME"
 }
 
 install_wrappers() {
-  echo "Installing wrapper commands to ~/.local/bin"
+  echo "Installing convenience commands to ~/.local/bin"
   mkdir -p "$HOME/.local/bin"
 
   cat > "$HOME/.local/bin/$RANDOM_WRAPPER_NAME" <<'EOF_RANDOM'
@@ -173,15 +195,17 @@ enable_timer() {
 
 maybe_enable_linger() {
   if [[ $ENABLE_LINGER -eq 1 ]]; then
-    echo "Enabling lingering for user '$USER'"
-    sudo loginctl enable-linger "$USER"
+    echo "Enabling lingering for user '$(id -un)'"
+    sudo loginctl enable-linger "$(id -un)"
   fi
 }
 
 maybe_run_now() {
   if [[ $RUN_NOW -eq 1 ]]; then
     echo "Running once now"
-    "$HOME/.local/bin/$SCRIPT_NAME" --force || true
+    "$HOME/.local/bin/$SCRIPT_NAME" --force || {
+      echo "Warning: immediate run failed; inspect the error above or journal logs." >&2
+    }
   fi
 }
 
@@ -190,14 +214,14 @@ show_path_hint() {
     echo
     echo "NOTE: $HOME/.local/bin is not currently in your PATH."
     echo "Add this to ~/.profile:"
-    echo "  export PATH=\"\$HOME/.local/bin:\$PATH\""
+    echo '  export PATH="$HOME/.local/bin:$PATH"'
   fi
 }
 
 show_status() {
   echo
   echo "Installed. Timer status:"
-  systemctl --user list-timers --all | grep -E "${UNIT_BASE}\.timer|NEXT|LEFT|LAST|PASSED|UNIT" || true
+  systemctl --user list-timers --all | grep -E "${UNIT_BASE}\\.timer|NEXT|LEFT|LAST|PASSED|UNIT" || true
   echo
   echo "Timer uses local system time, so daylight saving changes are handled by the OS timezone database."
   echo "Configured local run time: $TIMER_TIME"
@@ -212,7 +236,7 @@ show_status() {
 }
 
 install_deps
-install_script
+install_scripts
 install_wrappers
 write_units
 enable_timer
