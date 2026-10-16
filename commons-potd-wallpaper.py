@@ -88,9 +88,7 @@ def load_json(path: Path, *, default: dict | None = None) -> dict:
 
 
 def metadata_root() -> dict:
-    root = load_json(METADATA_FILE)
-    # Original script treated schema-versioned metadata as an incompatible format.
-    return {} if "schema_version" in root else root
+    return load_json(METADATA_FILE)
 
 
 def image_title_from_url(url: str) -> str:
@@ -159,16 +157,15 @@ def image_info(title: str, max_width: int) -> dict:
 
 
 def metadata_key(info: dict, title: str) -> str:
-    fallback = title.removeprefix("File:").replace("_", " ")
-    name = info.get("extmetadata", {}).get("ObjectName", {}).get("value") or fallback
-    name = re.sub(r"\s+", " ", str(name)).strip()
-    return name or title.removeprefix("File:")
+    # Stable identity comes from the actual Commons File: title, never ObjectName HTML.
+    return title.replace(" ", "_")
 
 
 def compact_info(info: dict, key: str) -> dict:
     metadata = info.get("extmetadata", {})
+    fallback_name = key.removeprefix("File:").replace("_", " ")
     return {field: metadata.get(field, {"value": default}) for field, default in
-            (("ObjectName", key), ("ImageDescription", ""), ("DateTimeOriginal", ""))}
+            (("ObjectName", fallback_name), ("ImageDescription", ""), ("DateTimeOriginal", ""))}
 
 
 def download_image(url: str, destination: Path) -> bool:
@@ -208,14 +205,6 @@ def current_state() -> dict:
     try:
         return load_json(STATE_FILE)
     except PotdError:
-        # Previous script also accepted the older 'entry_id|file_title' format.
-        try:
-            raw = STATE_FILE.read_text(encoding="utf-8").strip()
-        except OSError:
-            return {}
-        if "|" in raw:
-            entry_id, title = raw.split("|", 1)
-            return {"entry_id": entry_id, "file_title": title}
         return {}
 
 
@@ -268,7 +257,7 @@ def print_info() -> None:
         raise PotdError("No compact metadata entry found. Run --force or --random first")
     entry = root[key]
     info = entry.get("image_info", {})
-    values = [info.get("ObjectName", {}).get("value", key),
+    values = [info.get("ObjectName", {}).get("value", key.removeprefix("File:").replace("_", " ")),
               info.get("ImageDescription", {}).get("value", ""),
               info.get("DateTimeOriginal", {}).get("value", ""),
               entry.get("image_url", ""), entry.get("time_downloaded", "")]
@@ -280,12 +269,20 @@ def save_wallpaper() -> None:
     source = Path(state.get("display_path") or "/nonexistent")
     if not source.is_file():
         raise PotdError("Current wallpaper file is not available. Run --force or --random first")
+    title = state.get("file_title")
+    if not isinstance(title, str) or not title.startswith("File:"):
+        raise PotdError("Missing Commons file title. Run --force or --random first")
+
+    # Commons file title is the saved filename: no timestamp or ObjectName text.
+    filename = title.removeprefix("File:").replace("_", " ")
+    filename = filename.replace("/", "_").replace("\\", "_").strip()
+    if not filename or filename in {".", ".."}:
+        raise PotdError("Invalid Commons file title")
+    if len(os.fsencode(filename)) > 255:
+        raise PotdError("Commons file title exceeds the filesystem filename limit")
+
     SAVE_DIR.mkdir(parents=True, exist_ok=True)
-    key = state.get("metadata_key") or "wikimedia-potd"
-    safe_name = re.sub(r"_+", "_", re.sub(r"[^A-Za-z0-9._-]", "_", key)).strip("_") or "wikimedia-potd"
-    timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
-    extension = source.suffix.lower() if source.suffix.lower() in EXTENSIONS else ""
-    target = SAVE_DIR / f"{timestamp}_{safe_name}{extension}"
+    target = SAVE_DIR / filename
     shutil.copy2(source, target)
     target.chmod(0o644)
     print(f"Saved current POTD wallpaper to: {target}")
